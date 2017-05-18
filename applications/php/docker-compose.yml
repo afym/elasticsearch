@@ -1,0 +1,11 @@
+version: "2"
+services:
+  backend:
+    image: angelfym/php-nginx-aws:latest
+    container_name: php_web_application
+    volumes:
+      - ./nginx/sites.d:/etc/nginx/sites.d/
+      - ./log:/var/log/nginx/
+      - ./src:/usr/share/nginx/html/
+    ports:
+      - 8080:80
