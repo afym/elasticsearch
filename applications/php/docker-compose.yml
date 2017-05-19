@@ -5,7 +5,22 @@ services:
     container_name: php_web_application
     volumes:
       - ./nginx/sites.d:/etc/nginx/sites.d/
-      - ./log:/var/log/nginx/
+      - ./nginx/log:/var/log/nginx/
       - ./src:/usr/share/nginx/html/
     ports:
       - 8080:80
+    links:
+      - elasticsearch
+      - kibana
+  elasticsearch:
+    image: elasticsearch:5.4.0
+    container_name: elasticsearch_local_node
+    ports:
+      - 9200:9200
+  kibana:
+    image: kibana:5.4.0
+    container_name: kibana_local_node
+    ports:
+      - 5601:5601
+    links:
+      - elasticsearch
