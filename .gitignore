@@ -4,3 +4,5 @@ target
 operations
 *.log
 vendor/
+*.backup
+.terraform

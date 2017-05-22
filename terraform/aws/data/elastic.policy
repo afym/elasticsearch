@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "es:*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": [
+            "121.224.226.154/32",
+            "181.224.136.175/32"
+          ]
+        }
+      },
+      "Resource": "arn:aws:es:ap-southeast-2:<account-id>:domain/elasticsearch/*"
+    }
+  ]
+}
