@@ -6,3 +6,4 @@ operations
 vendor/
 *.backup
 .terraform
+*.lock

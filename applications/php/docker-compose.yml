@@ -1,14 +1,10 @@
 version: "2"
 services:
-  backend:
+  elasticsearhc_client:
     image: angelfym/php-nginx-aws:latest
-    container_name: php_web_application
     volumes:
-      - ./nginx/sites.d:/etc/nginx/sites.d/
-      - ./nginx/log:/var/log/nginx/
-      - ./src:/usr/share/nginx/html/
-    ports:
-      - 8080:80
+      - ./src:/usr/src/
+    command: ping 127.0.0.1
     links:
       - elasticsearch
       - kibana
